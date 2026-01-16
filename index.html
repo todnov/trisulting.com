@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Trifonov Consulting (Trisulting) — OneStream consulting and architecture services." />
+  <title>Trisulting | OneStream Consulting</title>
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#111827;
+      --muted:#94a3b8;
+      --text:#e5e7eb;
+      --accent:#22c55e;
+      --accent2:#60a5fa;
+      --border:rgba(148,163,184,.18);
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1040px;
+      --pad:20px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px 700px at 15% 10%, rgba(96,165,250,.22), transparent 55%),
+                  radial-gradient(900px 600px at 85% 15%, rgba(34,197,94,.18), transparent 55%),
+                  radial-gradient(900px 700px at 50% 100%, rgba(255,255,255,.06), transparent 50%),
+                  var(--bg);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(140%) blur(14px);
+      background: rgba(11,15,23,.65);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.2px}
+    .logo{
+      width:34px;height:34px;border-radius:11px;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      box-shadow: 0 10px 24px rgba(96,165,250,.18);
+    }
+    .links{display:flex;gap:18px;align-items:center}
+    .links a{color:var(--muted);font-weight:600;font-size:14px}
+    .links a:hover{color:var(--text)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--text);font-weight:700;font-size:14px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px);background: rgba(255,255,255,.06);border-color: rgba(148,163,184,.28)}
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      color:#071018;
+    }
+    .btn.primary:hover{transform: translateY(-1px) scale(1.01)}
+
+    .hero{padding:72px 0 36px}
+    .hero-grid{display:grid;grid-template-columns: 1.2fr .8fr;gap:28px;align-items:start}
+    h1{margin:0 0 10px;font-size:46px;line-height:1.05;letter-spacing:-.6px}
+    .sub{margin:0 0 22px;color:var(--muted);font-size:17px;max-width:56ch}
+    .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 26px}
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-weight:650;font-size:13px;
+    }
+    .dot{width:7px;height:7px;border-radius:99px;background:var(--accent)}
+
+    .card{
+      background: rgba(17,24,39,.75);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .card.pad{padding:18px}
+
+    .kpi{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+    .kpi .k{padding:14px;border-radius:14px;border:1px solid var(--border);background: rgba(255,255,255,.03)}
+    .k small{color:var(--muted);display:block;margin-bottom:6px;font-weight:650}
+    .k b{font-size:18px}
+
+    section{padding:28px 0}
+    .section-title{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:14px}
+    h2{margin:0;font-size:22px;letter-spacing:-.2px}
+    .hint{color:var(--muted);font-size:14px}
+
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .tile{padding:16px;border-radius:16px;border:1px solid var(--border);background: rgba(255,255,255,.03)}
+    .tile h3{margin:0 0 8px;font-size:16px}
+    .tile p{margin:0;color:var(--muted);font-size:14px}
+
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+    .list{margin:0;padding-left:18px;color:var(--muted)}
+    .list li{margin:8px 0}
+
+    .contact{
+      display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start
+    }
+    label{display:block;font-weight:650;font-size:13px;color:var(--muted);margin:0 0 6px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:120px;resize:vertical}
+    input:focus, textarea:focus{border-color: rgba(96,165,250,.55)}
+
+    footer{padding:26px 0 44px;color:var(--muted);border-top:1px solid var(--border)}
+    .footer-row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      h1{font-size:40px}
+      .grid3{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#top" aria-label="Trisulting home">
+          <span class="logo" aria-hidden="true"></span>
+          <span>Trisulting</span>
+        </a>
+        <div class="links">
+          <a href="#services">Services</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+          <a class="btn" href="#contact">Let’s talk</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap">
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <h1>OneStream consulting—done clean, fast, and calm.</h1>
+            <p class="sub">Trifonov Consulting ("Trisulting") helps finance teams ship reliable OneStream builds—consolidations, reporting, integrations, and ongoing admin support.</p>
+
+            <div class="pill-row" role="list">
+              <span class="pill" role="listitem"><span class="dot"></span>Independent contractor</span>
+              <span class="pill" role="listitem"><span class="dot"></span>Remote-first</span>
+              <span class="pill" role="listitem"><span class="dot"></span>Architect-minded delivery</span>
+              <span class="pill" role="listitem"><span class="dot"></span>Denver (UTC-7)</span>
+            </div>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn primary" href="#contact">Get availability</a>
+              <a class="btn" href="#services">See services</a>
+            </div>
+          </div>
+
+          <aside class="card pad">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+              <div>
+                <div style="font-weight:800;font-size:16px">What I’m best at</div>
+                <div style="color:var(--muted);font-size:13px;margin-top:2px">High-trust OneStream delivery</div>
+              </div>
+              <span class="pill" style="margin:0"><span class="dot"></span>Available soon</span>
+            </div>
+
+            <div class="kpi">
+              <div class="k"><small>Focus</small><b>Consolidations + Reporting</b></div>
+              <div class="k"><small>Strength</small><b>Client-facing troubleshooting</b></div>
+              <div class="k"><small>Style</small><b>Practical architecture</b></div>
+              <div class="k"><small>Tools</small><b>Rules, workflow, data loads</b></div>
+            </div>
+
+            <div style="margin-top:14px;color:var(--muted);font-size:13px">
+              Prefer a quick call? Email me and I’ll send time slots.
+            </div>
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn" href="mailto:hello@trisulting.com?subject=Trisulting%20-%20Inquiry">hello@trisulting.com</a>
+              <a class="btn" href="#contact">Contact form</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="section-title">
+          <h2>Services</h2>
+          <div class="hint">Pick a lane—or mix and match.</div>
+        </div>
+        <div class="grid3">
+          <div class="tile">
+            <h3>Architecture & design</h3>
+            <p>Application design decisions, extensibility strategy, data unit sizing considerations, and scalable workflows.</p>
+          </div>
+          <div class="tile">
+            <h3>Consolidations & close</h3>
+            <p>FX setup, ownership, eliminations, journals, confirmations, and close process reliability.</p>
+          </div>
+          <div class="tile">
+            <h3>Reporting & dashboards</h3>
+            <p>Cube views, books, parameters, dashboards, and clean end-user experiences that don’t break.</p>
+          </div>
+          <div class="tile">
+            <h3>Data integration</h3>
+            <p>Data sources, transformation rules, imports, troubleshooting logs, and sustainable mapping patterns.</p>
+          </div>
+          <div class="tile">
+            <h3>Admin & support</h3>
+            <p>Release management, environment hygiene, security troubleshooting, and steady operations support.</p>
+          </div>
+          <div class="tile">
+            <h3>Short-term engagements</h3>
+            <p>Backfills, peak close support, upgrades, or targeted fixes when you need a senior hand quickly.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="section-title">
+          <h2>How I work</h2>
+          <div class="hint">Simple process. No drama.</div>
+        </div>
+        <div class="split">
+          <div class="card pad">
+            <h3 style="margin:0 0 10px">Engagement flow</h3>
+            <ol class="list">
+              <li>Quick call to understand scope, constraints, and stakeholders.</li>
+              <li>Clarify deliverables (what “done” means) and confirm access needs.</li>
+              <li>Ship in small increments with tight feedback loops.</li>
+              <li>Document decisions so the team can own it after handoff.</li>
+            </ol>
+          </div>
+          <div class="card pad">
+            <h3 style="margin:0 0 10px">Credibility markers</h3>
+            <ul class="list">
+              <li>Architect-level OneStream experience across implementations and post-go-live support.</li>
+              <li>Comfortable translating finance requirements into system design.</li>
+              <li>Rule-writing and troubleshooting under close pressure.</li>
+              <li>Certification track: OCP Core Platform Architect (8.x).</li>
+            </ul>
+            <div style="margin-top:10px;color:var(--muted);font-size:13px">(Update this section with your exact cert status once you pass.)</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <div class="hint">Fastest: email. Second fastest: this form.</div>
+        </div>
+        <div class="contact">
+          <div class="card pad">
+            <h3 style="margin:0 0 10px">Email</h3>
+            <p style="margin:0;color:var(--muted)">Send a quick note with the role, start date, and whether travel is expected.</p>
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn primary" href="mailto:hello@trisulting.com?subject=Trisulting%20-%20Availability%20Inquiry">Email hello@trisulting.com</a>
+              <a class="btn" href="mailto:todd@trisulting.com?subject=Trisulting%20-%20Availability%20Inquiry">Email todd@trisulting.com</a>
+            </div>
+            <div style="margin-top:14px;color:var(--muted);font-size:13px">
+              Tip: If you’re a recruiter, include client industry, expected hours/week, and interview timeline.
+            </div>
+          </div>
+
+          <form class="card pad" onsubmit="return sendMail(event)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@company.com" required />
+              </div>
+            </div>
+            <div style="margin-top:12px">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="What are you looking for? Start date, hours/week, remote/travel, etc." required></textarea>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+              <button class="btn primary" type="submit">Send</button>
+              <span style="color:var(--muted);font-size:13px">This opens your email app (no data stored).</span>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-row wrap" style="padding:0">
+          <div>© <span id="y"></span> Trifonov Consulting (Trisulting)</div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap">
+            <a href="#services">Services</a>
+            <a href="#experience">How I work</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    function sendMail(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Trisulting - Inquiry');
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      );
+      window.location.href = `mailto:hello@trisulting.com?subject=${subject}&body=${body}`;
+      return false;
+    }
+  </script>
+</body>
+</html>
