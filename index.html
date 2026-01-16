@@ -8,46 +8,36 @@
 
   <style>
     :root{
-      --bg:#0b0f17;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.08);
-      --border: rgba(255,255,255,.12);
-      --text:#eaf0ff;
-      --muted: rgba(234,240,255,.72);
-      --muted2: rgba(234,240,255,.55);
-      --accent:#7c5cff;
-      --accent2:#27d6c8;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-      --radius2: 26px;
+      --bg:#ffffff;
+      --text:#0b1220;
+      --muted:#4b5563;
+      --muted2:#6b7280;
+      --border:#e5e7eb;
+      --panel:#f9fafb;
+      --accent:#0f2a5f; /* deep navy */
+      --accent2:#0b1220;
+      --radius:14px;
       --max: 1040px;
     }
-
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
-      background:
-        radial-gradient(900px 520px at 10% 10%, rgba(124,92,255,.22), transparent 55%),
-        radial-gradient(800px 540px at 90% 20%, rgba(39,214,200,.16), transparent 55%),
-        radial-gradient(900px 720px at 50% 100%, rgba(255,255,255,.06), transparent 60%),
-        var(--bg);
-      line-height: 1.45;
+      background: var(--bg);
+      line-height: 1.5;
     }
-
-    a{ color: inherit; text-decoration: none; }
+    a{ color: inherit; text-decoration:none; }
     .wrap{ max-width: var(--max); margin: 0 auto; padding: 26px 18px 70px; }
 
-    /* Top bar */
+    /* Top nav */
     .topbar{
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: blur(10px);
-      background: rgba(11,15,23,.55);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
     }
     .topbar-inner{
       max-width: var(--max);
@@ -60,200 +50,166 @@
     }
     .brand{
       display:flex;
-      align-items:center;
-      gap: 10px;
-      font-weight: 720;
-      letter-spacing:.2px;
+      flex-direction:column;
+      gap: 2px;
     }
-    .dot{
-      width:10px;height:10px;border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(124,92,255,.15);
+    .brand .name{
+      font-weight: 750;
+      letter-spacing: -.2px;
+      font-size: 15px;
+    }
+    .brand .sub{
+      color: var(--muted2);
+      font-size: 12.5px;
     }
     .nav{
-      display:flex; gap: 14px; align-items:center;
+      display:flex;
+      gap: 10px;
+      align-items:center;
       color: var(--muted);
       font-size: 14px;
     }
-    .nav a{ padding: 8px 10px; border-radius: 999px; }
-    .nav a:hover{ background: rgba(255,255,255,.06); color: var(--text); }
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    .nav a:hover{ background: #f3f4f6; color: var(--text); }
 
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       padding: 10px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      background: #fff;
       color: var(--text);
-      font-weight: 600;
-      gap: 10px;
-      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+      font-weight: 650;
       white-space: nowrap;
     }
-    .btn:hover{ background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.22); transform: translateY(-1px); }
+    .btn:hover{ background:#f9fafb; }
     .btn.primary{
-      border: 1px solid rgba(124,92,255,.55);
-      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(39,214,200,.78));
-      box-shadow: 0 12px 30px rgba(124,92,255,.22);
-      color: #0b0f17;
+      border-color: transparent;
+      background: var(--accent);
+      color: #fff;
     }
-    .btn.primary:hover{ transform: translateY(-1px); }
+    .btn.primary:hover{ filter: brightness(.95); }
 
     /* Hero */
     .hero{
-      margin-top: 26px;
+      margin-top: 28px;
       display:grid;
       grid-template-columns: 1.25fr .75fr;
-      gap: 18px;
-      align-items: stretch;
+      gap: 16px;
+      align-items: start;
     }
-    @media (max-width: 880px){
+    @media (max-width: 900px){
       .hero{ grid-template-columns: 1fr; }
     }
-
     .card{
-      background: var(--panel);
       border: 1px solid var(--border);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      padding: 22px;
+      border-radius: var(--radius);
+      padding: 20px;
+      background: #fff;
     }
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .kicker b{ color: var(--text); font-weight: 650; }
+    .card.soft{ background: var(--panel); }
     h1{
-      margin: 14px 0 10px;
-      font-size: clamp(32px, 3.2vw, 44px);
-      line-height: 1.05;
-      letter-spacing: -.6px;
+      margin: 0 0 10px;
+      font-size: clamp(30px, 3.0vw, 42px);
+      letter-spacing: -.7px;
+      line-height: 1.1;
     }
-    .sub{
-      margin: 0 0 18px;
+    .lead{
+      margin: 0 0 16px;
       color: var(--muted);
       font-size: 16px;
-      max-width: 62ch;
+      max-width: 65ch;
     }
+    .kicker{
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 12px;
+    }
+    .actions{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
 
     .tags{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      display:flex; flex-wrap: wrap; gap: 8px;
       margin-top: 10px;
     }
     .tag{
       font-size: 13px;
-      color: rgba(234,240,255,.78);
-      border: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: #fff;
       padding: 7px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,.04);
     }
-
-    .actions{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-
-    /* Side card */
-    .side h3{
-      margin: 0 0 10px;
-      font-size: 16px;
-      letter-spacing: -.2px;
-    }
-    .side p{ margin: 0 0 12px; color: var(--muted); font-size: 14px; }
-    .statgrid{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
-    .stat{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      border-radius: var(--radius);
-      padding: 12px;
-    }
-    .stat .num{ font-weight: 740; font-size: 18px; }
-    .stat .lbl{ color: var(--muted2); font-size: 12px; margin-top: 4px; }
 
     /* Sections */
-    .section{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap: 10px;
-      margin-top: 6px;
-    }
-    .section-title h2{
-      margin: 0;
+    .section{ margin-top: 26px; }
+    .section h2{
+      margin: 0 0 10px;
       font-size: 18px;
       letter-spacing: -.2px;
     }
-    .section-title span{
-      color: var(--muted2);
-      font-size: 13px;
-    }
-
     .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
-    @media (max-width: 920px){
+    @media (max-width: 900px){
       .grid{ grid-template-columns: 1fr; }
     }
-
-    .service{
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius2);
-      padding: 18px;
-      box-shadow: var(--shadow);
+    .service h3{
+      margin: 0 0 8px;
+      font-size: 15.5px;
+      letter-spacing: -.1px;
     }
-    .service h3{ margin: 0 0 8px; font-size: 16px; }
-    .service p{ margin: 0; color: var(--muted); font-size: 14px; }
-    ul{
-      margin: 10px 0 0;
-      padding-left: 18px;
+    .service p{
+      margin: 0;
       color: var(--muted);
       font-size: 14px;
     }
+    ul{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
     li{ margin: 6px 0; }
 
     .split{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
       gap: 14px;
-      align-items: stretch;
     }
-    @media (max-width: 920px){
+    @media (max-width: 900px){
       .split{ grid-template-columns: 1fr; }
     }
 
+    .mini{
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .mini b{ color: var(--text); }
+    .hr{ height:1px; background: var(--border); border:0; margin: 14px 0; }
     .footer{
-      margin-top: 26px;
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
       color: var(--muted2);
       font-size: 13px;
       display:flex;
-      align-items:center;
       justify-content:space-between;
       gap: 10px;
       flex-wrap: wrap;
     }
-    .mini{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      padding: 8px 10px;
-      border-radius: 999px;
+    .note{
+      color: var(--muted2);
+      font-size: 13px;
+      margin-top: 8px;
     }
-    .hr{ height:1px; background: rgba(255,255,255,.08); margin: 16px 0; border:0; }
-    .muted{ color: var(--muted); }
   </style>
 </head>
 
@@ -261,15 +217,14 @@
   <div class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <span class="dot"></span>
-        <span>Trifonov Consulting <span style="color:var(--muted2); font-weight:600;">(Trisulting)</span></span>
+        <div class="name">Trifonov Consulting</div>
+        <div class="sub">OneStream • Consolidations • Reconciliations • FP&amp;A</div>
       </div>
-
       <div class="nav">
         <a href="#services">Services</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
-        <a class="btn" href="mailto:todd.trifonov@trisulting.com">Email</a>
+        <a class="btn" href="mailto:todd.trifonov@trisulting.com">todd.trifonov@trisulting.com</a>
       </div>
     </div>
   </div>
@@ -277,11 +232,11 @@
   <main class="wrap">
     <section class="hero" id="top">
       <div class="card">
-        <div class="kicker"><b>Independent OneStream Consultant</b> • Consolidations • Reconciliations • FP&amp;A</div>
-        <h1>End-to-end OneStream delivery for finance teams that need results — fast.</h1>
-        <p class="sub">
-          I help organizations design, build, and support OneStream solutions across Financial Close &amp; Consolidations,
-          Account Reconciliations, and FP&amp;A — with a strong technical foundation in VB.NET/C#/SQL and real-world implementation experience.
+        <div class="kicker">Independent OneStream Consultant</div>
+        <h1>End-to-end OneStream delivery that’s practical, reliable, and built for close.</h1>
+        <p class="lead">
+          I support finance teams and partners with OneStream implementations and enhancements across
+          <b>Consolidations</b>, <b>Account Reconciliations</b>, and <b>FP&amp;A</b>—including integrations, workflow/security, reporting, and rules.
         </p>
 
         <div class="tags">
@@ -290,143 +245,112 @@
           <span class="tag">FP&amp;A</span>
           <span class="tag">Data Integration</span>
           <span class="tag">Workflow &amp; Security</span>
-          <span class="tag">Dashboards &amp; Reporting</span>
+          <span class="tag">Reporting &amp; Dashboards</span>
         </div>
 
         <div class="actions">
-          <a class="btn primary" href="mailto:todd.trifonov@trisulting.com?subject=OneStream%20contract%20inquiry">Contact Todd</a>
+          <a class="btn primary" href="mailto:todd.trifonov@trisulting.com?subject=OneStream%20contract%20inquiry">Contact</a>
           <a class="btn" href="#services">View services</a>
+        </div>
+
+        <div class="note">
+          Remote-first. Available for contract engagements and targeted advisory (design review, troubleshooting, build support).
         </div>
       </div>
 
-      <aside class="card side">
-        <h3>Quick snapshot</h3>
-        <p class="muted">Denver-based, remote-first. Available for contract engagements and targeted advisory.</p>
-
-        <div class="statgrid">
-          <div class="stat">
-            <div class="num">4+ yrs</div>
-            <div class="lbl">OneStream implementation experience</div>
-          </div>
-          <div class="stat">
-            <div class="num">End-to-end</div>
-            <div class="lbl">Build, integrate, test, deploy, support</div>
-          </div>
-          <div class="stat">
-            <div class="num">VB.NET / C#</div>
-            <div class="lbl">Rules, automations, custom dashboards</div>
-          </div>
-          <div class="stat">
-            <div class="num">Recs + Close</div>
-            <div class="lbl">Global / enterprise delivery</div>
-          </div>
+      <aside class="card soft">
+        <h2 style="margin-top:0;">What clients use me for</h2>
+        <div class="mini">
+          <div><b>Speed + ownership:</b> I can take a workstream and run it end-to-end.</div>
+          <div><b>Technical depth:</b> VB.NET / C# / SQL for rules, automation, and custom solutions.</div>
+          <div><b>Implementation reality:</b> Build, test, deploy, support—without overengineering.</div>
         </div>
-
         <hr class="hr" />
-        <p class="muted" style="margin:0;">
-          Email: <a href="mailto:todd.trifonov@trisulting.com" style="text-decoration:underline;">todd.trifonov@trisulting.com</a>
-        </p>
+        <div class="mini">
+          <div><b>Email:</b> <a href="mailto:todd.trifonov@trisulting.com" style="text-decoration:underline;">todd.trifonov@trisulting.com</a></div>
+          <div><b>Location:</b> Denver (remote engagements)</div>
+        </div>
       </aside>
     </section>
 
     <section class="section" id="services">
-      <div class="section-title">
-        <h2>Services</h2>
-        <span>What I can own end-to-end</span>
-      </div>
-
+      <h2>Services</h2>
       <div class="grid">
-        <div class="service">
+        <div class="card service">
           <h3>Financial Close &amp; Consolidations</h3>
-          <p>Architecture, configuration, and performance-minded modeling for close processes.</p>
+          <p>Architecture and configuration for close processes, FX, and performance-minded modeling.</p>
           <ul>
-            <li>Cube/workflow design &amp; member properties</li>
-            <li>FX setup, translations, calc design</li>
+            <li>Cube/workflow design and member properties</li>
+            <li>FX setup, translation, consolidation behaviors</li>
             <li>Rules, validations, troubleshooting</li>
           </ul>
         </div>
 
-        <div class="service">
+        <div class="card service">
           <h3>Account Reconciliations</h3>
-          <p>Implementation support and enhancement of OneStream Recs (including custom automation).</p>
+          <p>Implementation support and enhancements for OneStream Recs (including automation).</p>
           <ul>
-            <li>Dashboards and UX for recon teams</li>
-            <li>Automation via extensibility rules</li>
+            <li>Recs setup, dashboards, user experience</li>
+            <li>Extensibility rules + admin automation</li>
             <li>Historical validation &amp; integration QA</li>
           </ul>
         </div>
 
-        <div class="service">
+        <div class="card service">
           <h3>FP&amp;A &amp; Reporting</h3>
-          <p>Planning models, input forms, and reporting that’s usable in the real world.</p>
+          <p>Planning models and reporting deliverables that are clean, usable, and maintainable.</p>
           <ul>
             <li>Cube views, books, dashboards</li>
-            <li>Forecast &amp; driver-based modeling</li>
-            <li>Variance reporting and templates</li>
+            <li>Forecast/budget workflows and input</li>
+            <li>Variance reporting + templates</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="section" id="experience">
-      <div class="section-title">
-        <h2>Experience</h2>
-        <span>Highlights pulled from recent work</span>
-      </div>
-
+      <h2>Experience</h2>
       <div class="split">
         <div class="card">
-          <h3 style="margin:0 0 10px;">Independent Consultant (2025–present)</h3>
-          <p class="muted" style="margin:0 0 12px;">
-            Enterprise OneStream delivery focused on Account Reconciliations, including historical validation and custom dashboards/rules.
-          </p>
+          <h3 style="margin-top:0;">Independent Consultant</h3>
+          <p class="lead" style="margin-bottom:10px;">OneStream delivery focused on enterprise enhancements, reconciliations, and automation.</p>
           <ul>
-            <li>Led historical data validation across upstream integrations feeding Recs</li>
-            <li>Built custom dashboards using VB.NET/C# and OneStream data structures</li>
-            <li>Enhanced extensibility rules to automate Account Group / Access Group creation</li>
+            <li>Built/extended dashboards and automation using VB.NET/C#/SQL</li>
+            <li>Supported historical data validation and upstream integration troubleshooting</li>
+            <li>Improved admin efficiency via extensibility rules and automation</li>
           </ul>
         </div>
-
         <div class="card">
-          <h3 style="margin:0 0 10px;">Clearsulting (2022–2025)</h3>
-          <p class="muted" style="margin:0 0 12px;">
-            Delivered OneStream solutions for Fortune 500 and nonprofit clients across close, recs, FP&amp;A, and reporting.
-          </p>
+          <h3 style="margin-top:0;">Prior Consulting Delivery</h3>
+          <p class="lead" style="margin-bottom:10px;">End-to-end implementations spanning close, reconciliations, FP&amp;A, and reporting.</p>
           <ul>
-            <li>Multi-phase deployment spanning Financial Close, Reconciliation, and FP&amp;A</li>
-            <li>ERP integrations using VB.NET/SQL for mapping + transformation</li>
-            <li>Budget entry &amp; variance reporting via cube views, workflows, forms</li>
+            <li>Designed workflows, security, and reporting deliverables for finance teams</li>
+            <li>Built integrations, mappings, and transformations for ERP/source systems</li>
+            <li>Supported UAT, go-live, and post-production stabilization</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="section" id="contact">
-      <div class="section-title">
-        <h2>Contact</h2>
-        <span>Fastest way to reach me</span>
-      </div>
-
+      <h2>Contact</h2>
       <div class="card">
-        <p class="muted" style="margin:0 0 14px;">
-          If you have a OneStream contract or need targeted help (design review, troubleshooting, build support), email me with
-          timeline, scope, and expected hours/week.
+        <p class="lead" style="margin-bottom:12px;">
+          Email me with timeline, scope, expected hours/week, and any travel requirements.
         </p>
         <div class="actions">
-          <a class="btn primary" href="mailto:todd.trifonov@trisulting.com?subject=OneStream%20contract%20inquiry&body=Hi%20Todd%2C%0A%0AScope%3A%20%0ATimeline%3A%20%0AHours%2Fweek%3A%20%0ALocation%2Ftravel%3A%20%0A%0AThanks!">Email Todd</a>
+          <a class="btn primary" href="mailto:todd.trifonov@trisulting.com?subject=OneStream%20contract%20inquiry&body=Hi%20Todd%2C%0A%0AScope%3A%20%0ATimeline%3A%20%0AHours%2Fweek%3A%20%0ATravel%3A%20%0A%0AThanks!">Email Todd</a>
           <a class="btn" href="#top">Back to top</a>
         </div>
       </div>
     </section>
 
     <div class="footer">
-      <div class="mini">Trifonov Consulting LLC • Trisulting</div>
-      <div class="mini">© <span id="y"></span> • <a href="mailto:todd.trifonov@trisulting.com" style="text-decoration:underline;">todd.trifonov@trisulting.com</a></div>
+      <div>Trifonov Consulting LLC</div>
+      <div>© <span id="y"></span> • <a href="mailto:todd.trifonov@trisulting.com" style="text-decoration:underline;">todd.trifonov@trisulting.com</a></div>
     </div>
   </main>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
