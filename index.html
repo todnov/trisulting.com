@@ -2,340 +2,431 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Trifonov Consulting (Trisulting) — OneStream consulting and architecture services." />
-  <title>Trisulting | OneStream Consulting</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trifonov Consulting | OneStream Delivery</title>
+  <meta name="description" content="Independent OneStream consultant delivering Consolidations, Account Reconciliations, and FP&A end-to-end." />
+
   <style>
     :root{
       --bg:#0b0f17;
-      --card:#111827;
-      --muted:#94a3b8;
-      --text:#e5e7eb;
-      --accent:#22c55e;
-      --accent2:#60a5fa;
-      --border:rgba(148,163,184,.18);
-      --shadow: 0 18px 40px rgba(0,0,0,.35);
-      --radius:18px;
-      --max:1040px;
-      --pad:20px;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.08);
+      --border: rgba(255,255,255,.12);
+      --text:#eaf0ff;
+      --muted: rgba(234,240,255,.72);
+      --muted2: rgba(234,240,255,.55);
+      --accent:#7c5cff;
+      --accent2:#27d6c8;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1040px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background: radial-gradient(1200px 700px at 15% 10%, rgba(96,165,250,.22), transparent 55%),
-                  radial-gradient(900px 600px at 85% 15%, rgba(34,197,94,.18), transparent 55%),
-                  radial-gradient(900px 700px at 50% 100%, rgba(255,255,255,.06), transparent 50%),
-                  var(--bg);
-      line-height:1.55;
+      color: var(--text);
+      background:
+        radial-gradient(900px 520px at 10% 10%, rgba(124,92,255,.22), transparent 55%),
+        radial-gradient(800px 540px at 90% 20%, rgba(39,214,200,.16), transparent 55%),
+        radial-gradient(900px 720px at 50% 100%, rgba(255,255,255,.06), transparent 60%),
+        var(--bg);
+      line-height: 1.45;
     }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-    header{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:saturate(140%) blur(14px);
-      background: rgba(11,15,23,.65);
-      border-bottom:1px solid var(--border);
+
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 26px 18px 70px; }
+
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,23,.55);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar-inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 720;
+      letter-spacing:.2px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(124,92,255,.15);
     }
     .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:14px 0;
+      display:flex; gap: 14px; align-items:center;
+      color: var(--muted);
+      font-size: 14px;
     }
-    .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.2px}
-    .logo{
-      width:34px;height:34px;border-radius:11px;
-      background: linear-gradient(135deg, var(--accent2), var(--accent));
-      box-shadow: 0 10px 24px rgba(96,165,250,.18);
-    }
-    .links{display:flex;gap:18px;align-items:center}
-    .links a{color:var(--muted);font-weight:600;font-size:14px}
-    .links a:hover{color:var(--text)}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 14px;border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      color:var(--text);font-weight:700;font-size:14px;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      cursor:pointer;
-    }
-    .btn:hover{transform: translateY(-1px);background: rgba(255,255,255,.06);border-color: rgba(148,163,184,.28)}
-    .btn.primary{
-      border:none;
-      background: linear-gradient(135deg, var(--accent2), var(--accent));
-      color:#071018;
-    }
-    .btn.primary:hover{transform: translateY(-1px) scale(1.01)}
+    .nav a{ padding: 8px 10px; border-radius: 999px; }
+    .nav a:hover{ background: rgba(255,255,255,.06); color: var(--text); }
 
-    .hero{padding:72px 0 36px}
-    .hero-grid{display:grid;grid-template-columns: 1.2fr .8fr;gap:28px;align-items:start}
-    h1{margin:0 0 10px;font-size:46px;line-height:1.05;letter-spacing:-.6px}
-    .sub{margin:0 0 22px;color:var(--muted);font-size:17px;max-width:56ch}
-    .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 26px}
-    .pill{
-      display:inline-flex;gap:8px;align-items:center;
-      padding:8px 12px;border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      color:var(--muted);
-      font-weight:650;font-size:13px;
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 600;
+      gap: 10px;
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+      white-space: nowrap;
     }
-    .dot{width:7px;height:7px;border-radius:99px;background:var(--accent)}
+    .btn:hover{ background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.22); transform: translateY(-1px); }
+    .btn.primary{
+      border: 1px solid rgba(124,92,255,.55);
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(39,214,200,.78));
+      box-shadow: 0 12px 30px rgba(124,92,255,.22);
+      color: #0b0f17;
+    }
+    .btn.primary:hover{ transform: translateY(-1px); }
+
+    /* Hero */
+    .hero{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    @media (max-width: 880px){
+      .hero{ grid-template-columns: 1fr; }
+    }
 
     .card{
-      background: rgba(17,24,39,.75);
-      border:1px solid var(--border);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .kicker b{ color: var(--text); font-weight: 650; }
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(32px, 3.2vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -.6px;
+    }
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 62ch;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .tag{
+      font-size: 13px;
+      color: rgba(234,240,255,.78);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .actions{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+
+    /* Side card */
+    .side h3{
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    .side p{ margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+    .statgrid{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+    .stat{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
       border-radius: var(--radius);
+      padding: 12px;
+    }
+    .stat .num{ font-weight: 740; font-size: 18px; }
+    .stat .lbl{ color: var(--muted2); font-size: 12px; margin-top: 4px; }
+
+    /* Sections */
+    .section{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .section-title h2{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -.2px;
+    }
+    .section-title span{
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .service{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      padding: 18px;
       box-shadow: var(--shadow);
     }
-    .card.pad{padding:18px}
-
-    .kpi{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
-    .kpi .k{padding:14px;border-radius:14px;border:1px solid var(--border);background: rgba(255,255,255,.03)}
-    .k small{color:var(--muted);display:block;margin-bottom:6px;font-weight:650}
-    .k b{font-size:18px}
-
-    section{padding:28px 0}
-    .section-title{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:14px}
-    h2{margin:0;font-size:22px;letter-spacing:-.2px}
-    .hint{color:var(--muted);font-size:14px}
-
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .tile{padding:16px;border-radius:16px;border:1px solid var(--border);background: rgba(255,255,255,.03)}
-    .tile h3{margin:0 0 8px;font-size:16px}
-    .tile p{margin:0;color:var(--muted);font-size:14px}
-
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-
-    .list{margin:0;padding-left:18px;color:var(--muted)}
-    .list li{margin:8px 0}
-
-    .contact{
-      display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start
+    .service h3{ margin: 0 0 8px; font-size: 16px; }
+    .service p{ margin: 0; color: var(--muted); font-size: 14px; }
+    ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
     }
-    label{display:block;font-weight:650;font-size:13px;color:var(--muted);margin:0 0 6px}
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      color:var(--text);
-      outline:none;
+    li{ margin: 6px 0; }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items: stretch;
     }
-    textarea{min-height:120px;resize:vertical}
-    input:focus, textarea:focus{border-color: rgba(96,165,250,.55)}
-
-    footer{padding:26px 0 44px;color:var(--muted);border-top:1px solid var(--border)}
-    .footer-row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-
     @media (max-width: 920px){
-      .hero-grid{grid-template-columns:1fr}
-      h1{font-size:40px}
-      .grid3{grid-template-columns:1fr}
-      .split{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
+      .split{ grid-template-columns: 1fr; }
     }
+
+    .footer{
+      margin-top: 26px;
+      color: var(--muted2);
+      font-size: 13px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .mini{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    .hr{ height:1px; background: rgba(255,255,255,.08); margin: 16px 0; border:0; }
+    .muted{ color: var(--muted); }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="wrap">
-      <nav class="nav">
-        <a class="brand" href="#top" aria-label="Trisulting home">
-          <span class="logo" aria-hidden="true"></span>
-          <span>Trisulting</span>
-        </a>
-        <div class="links">
-          <a href="#services">Services</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-          <a class="btn" href="#contact">Let’s talk</a>
-        </div>
-      </nav>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Trifonov Consulting <span style="color:var(--muted2); font-weight:600;">(Trisulting)</span></span>
+      </div>
+
+      <div class="nav">
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="mailto:todd.trifonov@trisulting.com">Email</a>
+      </div>
     </div>
-  </header>
+  </div>
 
-  <main id="top">
-    <div class="wrap">
-      <section class="hero">
-        <div class="hero-grid">
-          <div>
-            <h1>OneStream consulting—done clean, fast, and calm.</h1>
-            <p class="sub">Trifonov Consulting ("Trisulting") helps finance teams ship reliable OneStream builds—consolidations, reporting, integrations, and ongoing admin support.</p>
+  <main class="wrap">
+    <section class="hero" id="top">
+      <div class="card">
+        <div class="kicker"><b>Independent OneStream Consultant</b> • Consolidations • Reconciliations • FP&amp;A</div>
+        <h1>End-to-end OneStream delivery for finance teams that need results — fast.</h1>
+        <p class="sub">
+          I help organizations design, build, and support OneStream solutions across Financial Close &amp; Consolidations,
+          Account Reconciliations, and FP&amp;A — with a strong technical foundation in VB.NET/C#/SQL and real-world implementation experience.
+        </p>
 
-            <div class="pill-row" role="list">
-              <span class="pill" role="listitem"><span class="dot"></span>Independent contractor</span>
-              <span class="pill" role="listitem"><span class="dot"></span>Remote-first</span>
-              <span class="pill" role="listitem"><span class="dot"></span>Architect-minded delivery</span>
-              <span class="pill" role="listitem"><span class="dot"></span>Denver (UTC-7)</span>
-            </div>
-
-            <div style="display:flex;gap:10px;flex-wrap:wrap">
-              <a class="btn primary" href="#contact">Get availability</a>
-              <a class="btn" href="#services">See services</a>
-            </div>
-          </div>
-
-          <aside class="card pad">
-            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
-              <div>
-                <div style="font-weight:800;font-size:16px">What I’m best at</div>
-                <div style="color:var(--muted);font-size:13px;margin-top:2px">High-trust OneStream delivery</div>
-              </div>
-              <span class="pill" style="margin:0"><span class="dot"></span>Available soon</span>
-            </div>
-
-            <div class="kpi">
-              <div class="k"><small>Focus</small><b>Consolidations + Reporting</b></div>
-              <div class="k"><small>Strength</small><b>Client-facing troubleshooting</b></div>
-              <div class="k"><small>Style</small><b>Practical architecture</b></div>
-              <div class="k"><small>Tools</small><b>Rules, workflow, data loads</b></div>
-            </div>
-
-            <div style="margin-top:14px;color:var(--muted);font-size:13px">
-              Prefer a quick call? Email me and I’ll send time slots.
-            </div>
-            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-              <a class="btn" href="mailto:hello@trisulting.com?subject=Trisulting%20-%20Inquiry">hello@trisulting.com</a>
-              <a class="btn" href="#contact">Contact form</a>
-            </div>
-          </aside>
+        <div class="tags">
+          <span class="tag">Consolidations</span>
+          <span class="tag">Account Reconciliations</span>
+          <span class="tag">FP&amp;A</span>
+          <span class="tag">Data Integration</span>
+          <span class="tag">Workflow &amp; Security</span>
+          <span class="tag">Dashboards &amp; Reporting</span>
         </div>
-      </section>
 
-      <section id="services">
-        <div class="section-title">
-          <h2>Services</h2>
-          <div class="hint">Pick a lane—or mix and match.</div>
+        <div class="actions">
+          <a class="btn primary" href="mailto:todd.trifonov@trisulting.com?subject=OneStream%20contract%20inquiry">Contact Todd</a>
+          <a class="btn" href="#services">View services</a>
         </div>
-        <div class="grid3">
-          <div class="tile">
-            <h3>Architecture & design</h3>
-            <p>Application design decisions, extensibility strategy, data unit sizing considerations, and scalable workflows.</p>
+      </div>
+
+      <aside class="card side">
+        <h3>Quick snapshot</h3>
+        <p class="muted">Denver-based, remote-first. Available for contract engagements and targeted advisory.</p>
+
+        <div class="statgrid">
+          <div class="stat">
+            <div class="num">3+ yrs</div>
+            <div class="lbl">OneStream implementation experience</div>
           </div>
-          <div class="tile">
-            <h3>Consolidations & close</h3>
-            <p>FX setup, ownership, eliminations, journals, confirmations, and close process reliability.</p>
+          <div class="stat">
+            <div class="num">End-to-end</div>
+            <div class="lbl">Build, integrate, test, deploy, support</div>
           </div>
-          <div class="tile">
-            <h3>Reporting & dashboards</h3>
-            <p>Cube views, books, parameters, dashboards, and clean end-user experiences that don’t break.</p>
+          <div class="stat">
+            <div class="num">VB.NET / C#</div>
+            <div class="lbl">Rules, automations, custom dashboards</div>
           </div>
-          <div class="tile">
-            <h3>Data integration</h3>
-            <p>Data sources, transformation rules, imports, troubleshooting logs, and sustainable mapping patterns.</p>
-          </div>
-          <div class="tile">
-            <h3>Admin & support</h3>
-            <p>Release management, environment hygiene, security troubleshooting, and steady operations support.</p>
-          </div>
-          <div class="tile">
-            <h3>Short-term engagements</h3>
-            <p>Backfills, peak close support, upgrades, or targeted fixes when you need a senior hand quickly.</p>
+          <div class="stat">
+            <div class="num">Recs + Close</div>
+            <div class="lbl">Global / enterprise delivery</div>
           </div>
         </div>
-      </section>
 
-      <section id="experience">
-        <div class="section-title">
-          <h2>How I work</h2>
-          <div class="hint">Simple process. No drama.</div>
-        </div>
-        <div class="split">
-          <div class="card pad">
-            <h3 style="margin:0 0 10px">Engagement flow</h3>
-            <ol class="list">
-              <li>Quick call to understand scope, constraints, and stakeholders.</li>
-              <li>Clarify deliverables (what “done” means) and confirm access needs.</li>
-              <li>Ship in small increments with tight feedback loops.</li>
-              <li>Document decisions so the team can own it after handoff.</li>
-            </ol>
-          </div>
-          <div class="card pad">
-            <h3 style="margin:0 0 10px">Credibility markers</h3>
-            <ul class="list">
-              <li>Architect-level OneStream experience across implementations and post-go-live support.</li>
-              <li>Comfortable translating finance requirements into system design.</li>
-              <li>Rule-writing and troubleshooting under close pressure.</li>
-              <li>Certification track: OCP Core Platform Architect (8.x).</li>
-            </ul>
-            <div style="margin-top:10px;color:var(--muted);font-size:13px">(Update this section with your exact cert status once you pass.)</div>
-          </div>
-        </div>
-      </section>
+        <hr class="hr" />
+        <p class="muted" style="margin:0;">
+          Email: <a href="mailto:todd.trifonov@trisulting.com" style="text-decoration:underline;">todd.trifonov@trisulting.com</a>
+        </p>
+      </aside>
+    </section>
 
-      <section id="contact">
-        <div class="section-title">
-          <h2>Contact</h2>
-          <div class="hint">Fastest: email. Second fastest: this form.</div>
-        </div>
-        <div class="contact">
-          <div class="card pad">
-            <h3 style="margin:0 0 10px">Email</h3>
-            <p style="margin:0;color:var(--muted)">Send a quick note with the role, start date, and whether travel is expected.</p>
-            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-              <a class="btn primary" href="mailto:hello@trisulting.com?subject=Trisulting%20-%20Availability%20Inquiry">Email hello@trisulting.com</a>
-              <a class="btn" href="mailto:todd@trisulting.com?subject=Trisulting%20-%20Availability%20Inquiry">Email todd@trisulting.com</a>
-            </div>
-            <div style="margin-top:14px;color:var(--muted);font-size:13px">
-              Tip: If you’re a recruiter, include client industry, expected hours/week, and interview timeline.
-            </div>
-          </div>
+    <section class="section" id="services">
+      <div class="section-title">
+        <h2>Services</h2>
+        <span>What I can own end-to-end</span>
+      </div>
 
-          <form class="card pad" onsubmit="return sendMail(event)">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-              <div>
-                <label for="name">Name</label>
-                <input id="name" name="name" placeholder="Your name" required />
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@company.com" required />
-              </div>
-            </div>
-            <div style="margin-top:12px">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="What are you looking for? Start date, hours/week, remote/travel, etc." required></textarea>
-            </div>
-            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-              <button class="btn primary" type="submit">Send</button>
-              <span style="color:var(--muted);font-size:13px">This opens your email app (no data stored).</span>
-            </div>
-          </form>
+      <div class="grid">
+        <div class="service">
+          <h3>Financial Close &amp; Consolidations</h3>
+          <p>Architecture, configuration, and performance-minded modeling for close processes.</p>
+          <ul>
+            <li>Cube/workflow design &amp; member properties</li>
+            <li>FX setup, translations, calc design</li>
+            <li>Rules, validations, troubleshooting</li>
+          </ul>
         </div>
-      </section>
 
-      <footer>
-        <div class="footer-row wrap" style="padding:0">
-          <div>© <span id="y"></span> Trifonov Consulting (Trisulting)</div>
-          <div style="display:flex;gap:14px;flex-wrap:wrap">
-            <a href="#services">Services</a>
-            <a href="#experience">How I work</a>
-            <a href="#contact">Contact</a>
-          </div>
+        <div class="service">
+          <h3>Account Reconciliations</h3>
+          <p>Implementation support and enhancement of OneStream Recs (including custom automation).</p>
+          <ul>
+            <li>Dashboards and UX for recon teams</li>
+            <li>Automation via extensibility rules</li>
+            <li>Historical validation &amp; integration QA</li>
+          </ul>
         </div>
-      </footer>
+
+        <div class="service">
+          <h3>FP&amp;A &amp; Reporting</h3>
+          <p>Planning models, input forms, and reporting that’s usable in the real world.</p>
+          <ul>
+            <li>Cube views, books, dashboards</li>
+            <li>Forecast &amp; driver-based modeling</li>
+            <li>Variance reporting and templates</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-title">
+        <h2>Experience</h2>
+        <span>Highlights pulled from recent work</span>
+      </div>
+
+      <div class="split">
+        <div class="card">
+          <h3 style="margin:0 0 10px;">Independent Consultant (2025–present)</h3>
+          <p class="muted" style="margin:0 0 12px;">
+            Enterprise OneStream delivery focused on Account Reconciliations, including historical validation and custom dashboards/rules.
+          </p>
+          <ul>
+            <li>Led historical data validation across upstream integrations feeding Recs</li>
+            <li>Built custom dashboards using VB.NET/C# and OneStream data structures</li>
+            <li>Enhanced extensibility rules to automate Account Group / Access Group creation</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 10px;">Clearsulting (2022–2025)</h3>
+          <p class="muted" style="margin:0 0 12px;">
+            Delivered OneStream solutions for Fortune 500 and nonprofit clients across close, recs, FP&amp;A, and reporting.
+          </p>
+          <ul>
+            <li>Multi-phase deployment spanning Financial Close, Reconciliation, and FP&amp;A</li>
+            <li>ERP integrations using VB.NET/SQL for mapping + transformation</li>
+            <li>Budget entry &amp; variance reporting via cube views, workflows, forms</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <span>Fastest way to reach me</span>
+      </div>
+
+      <div class="card">
+        <p class="muted" style="margin:0 0 14px;">
+          If you have a OneStream contract or need targeted help (design review, troubleshooting, build support), email me with
+          timeline, scope, and expected hours/week.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:todd.trifonov@trisulting.com?subject=OneStream%20contract%20inquiry&body=Hi%20Todd%2C%0A%0AScope%3A%20%0ATimeline%3A%20%0AHours%2Fweek%3A%20%0ALocation%2Ftravel%3A%20%0A%0AThanks!">Email Todd</a>
+          <a class="btn" href="#top">Back to top</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div class="mini">Trifonov Consulting LLC • Trisulting</div>
+      <div class="mini">© <span id="y"></span> • <a href="mailto:todd.trifonov@trisulting.com" style="text-decoration:underline;">todd.trifonov@trisulting.com</a></div>
     </div>
   </main>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    function sendMail(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const subject = encodeURIComponent('Trisulting - Inquiry');
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-      );
-      window.location.href = `mailto:hello@trisulting.com?subject=${subject}&body=${body}`;
-      return false;
-    }
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
